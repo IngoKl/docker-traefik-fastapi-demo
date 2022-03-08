@@ -15,6 +15,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
 
   frontend:
+    build: ./frontend
     image: demo-frontend
     networks:
       - "demo-net"
@@ -24,6 +25,7 @@ services:
       - "traefik.http.routers.frontend.entrypoints=web"
 
   backend:
+    build: ./backend
     image: demo-backend
     networks:
       - "demo-net"
